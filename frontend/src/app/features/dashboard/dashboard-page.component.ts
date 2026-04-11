@@ -174,7 +174,8 @@ export class DashboardPageComponent {
   }
 
   isOwner(task: TaskItem): boolean {
-    return task.userId._id === this.currentUser()?.id;
+    const user = this.currentUser();
+    return task.userId._id === user?.id || task.userId._id === user?._id;
   }
 
   private refreshTasks(): void {
